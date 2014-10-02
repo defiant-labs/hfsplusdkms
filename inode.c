@@ -36,7 +36,11 @@ static void hfsplus_write_failed(struct address_space *mapping, loff_t to)
 	struct inode *inode = mapping->host;
 
 	if (to > inode->i_size) {
-		truncate_pagecache(inode, to, inode->i_size);
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,12,0)
+		truncate_pagecache(inode, i_size_read(inode));
+#else
+ 		truncate_pagecache(inode, to, i_size_read(inode));
+#endif
 		hfsplus_file_truncate(inode);
 	}
 }

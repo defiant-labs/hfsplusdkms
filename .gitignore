@@ -1,0 +1,6 @@
+*.[aod]
+*~
+*.so
+*.ko
+.tmp_versions
+Module.symvers
