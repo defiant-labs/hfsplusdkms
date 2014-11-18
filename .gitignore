@@ -3,5 +3,7 @@
 *.so
 *.ko
 .tmp_versions
+*.cmd
+
 Module.symvers
 test
