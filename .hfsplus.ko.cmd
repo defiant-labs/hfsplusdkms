@@ -1,0 +1,1 @@
+cmd_/home/Soft/Drivers/hfsplusdkms/hfsplus.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.14-kali1-common/scripts/module-common.lds --build-id  -o /home/Soft/Drivers/hfsplusdkms/hfsplus.ko /home/Soft/Drivers/hfsplusdkms/hfsplus.o /home/Soft/Drivers/hfsplusdkms/hfsplus.mod.o

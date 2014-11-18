@@ -4,3 +4,4 @@
 *.ko
 .tmp_versions
 Module.symvers
+test
