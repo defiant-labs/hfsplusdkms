@@ -1,5 +1,5 @@
 #
-# Makefile for the Linux hfsplus filesystem driver
+# Makefile for the Linux HFS+ filesystem driver
 #
 
 ifneq ($(KERNELRELEASE),) # part of the kernel tree
@@ -15,19 +15,20 @@ hfsplus-$(CONFIG_HFSPLUS_FS_POSIX_ACL) += posix_acl.o
 else # stand-alone
 
 KDIR := /lib/modules/$(shell uname -r)/kernel/fs/hfsplus
-BDIR := /lib/modules/$(shell uname -r)/build
+KDIR := /home/Soft/Linux/linux-3.16.7
+# KDIR := /lib/modules/$(shell uname -r)/build
 
 all:
-	$(MAKE) -C  $(BDIR) M=`pwd` $@
+	$(MAKE) -C $(KDIR) M=$(PWD) modules
 
 # modules_prepare:
-# 	$(MAKE) O=$(BDIR) M=`pwd` $@
+# 	$(MAKE) O=$(KDIR) M=$(PWD) modules_prepare
 
 clean:
-	$(MAKE) -C $(BDIR) M=`pwd` $@
+	$(MAKE) -C $(KDIR) M=$(PWD) clean
 
 help:
-	$(MAKE) -C $(BDIR) M=`pwd` help
+	$(MAKE) -C $(KDIR) M=$(PWD) help
 
 install: hfsplus.ko
 	rm -f ${KDIR}/hfsplus.ko
