@@ -15,8 +15,8 @@ hfsplus-$(CONFIG_HFSPLUS_FS_POSIX_ACL) += posix_acl.o
 else # stand-alone
 
 KDIR := /lib/modules/$(shell uname -r)/kernel/fs/hfsplus
-KDIR := /home/Soft/Linux/linux-3.16.7
-# KDIR := /lib/modules/$(shell uname -r)/build
+# KDIR := /home/Soft/Linux/linux-3.19-rc2
+KDIR := /lib/modules/$(shell uname -r)/build
 
 all:
 	$(MAKE) -C $(KDIR) M=$(PWD) modules
